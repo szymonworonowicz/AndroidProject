@@ -1,0 +1,1 @@
+Create cycling stats app for android 7.0

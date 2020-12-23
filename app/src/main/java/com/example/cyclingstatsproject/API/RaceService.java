@@ -29,4 +29,6 @@ public interface RaceService {
     Call<TournamentList> getTournamentList(@Path("lang") String lang, @Query("api_key") String api_key);
     @GET("{lang}/tournaments/{tournament_id}/schedule.json")
     Call<TournamentSchedule> getTournamentSchedule(@Path("lang") String lang,@Path("tournament_id") String tournament_id,@Query("api_key") String api_key);
+    @GET("{lang}/tournaments.json?api_key={api_key}")
+    Call<TournamentList> getTournamentsTournamentListCall(@Path("lang") String lang,@Path("api_key") String api_key);
 }

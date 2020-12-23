@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitInstance {
     private static Retrofit retrofit;
-    private static final String RACE_API_URL = "https://api.sportradar.us/cycling-t1/";
+    private static final String RACE_API_URL = "https://api.sportradar.us/cycling/trial/v2/";
 
     public static Retrofit getRetrofitInstance() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();

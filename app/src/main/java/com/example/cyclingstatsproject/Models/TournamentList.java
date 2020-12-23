@@ -2,17 +2,19 @@ package com.example.cyclingstatsproject.Models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class TournamentList {
-    @SerializedName("tournaments")
-    private List<Tournament> tournaments;
+    @SerializedName("stages")
+    private LinkedList<Tournament> tournaments;
 
-    public List<Tournament> getTournaments() {
+    public LinkedList<Tournament> getTournaments() {
         return tournaments;
     }
 
-    public void setTournaments(List<Tournament> tournaments) {
+    public void setTournaments(LinkedList<Tournament> tournaments) {
         this.tournaments = tournaments;
     }
 }

@@ -7,14 +7,12 @@ import java.util.Date;
 public class Tournament {
     @SerializedName("id")
     private String id;
-    @SerializedName("name")
+    @SerializedName("description")
     private String name;
     @SerializedName("scheduled")
     private Date scheduled;
     @SerializedName("scheduled_end")
     private Date scheduled_end;
-    @SerializedName("category")
-    private Category category;
 
     public String getId() {
         return id;
@@ -48,11 +46,4 @@ public class Tournament {
         this.scheduled_end = scheduled_end;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 }

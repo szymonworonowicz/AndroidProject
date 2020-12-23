@@ -1,5 +1,6 @@
 package com.example.cyclingstatsproject.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +20,10 @@ import com.example.cyclingstatsproject.API.RetrofitInstance;
 import com.example.cyclingstatsproject.Models.Tournament;
 import com.example.cyclingstatsproject.Models.TournamentList;
 import com.example.cyclingstatsproject.R;
+import com.example.cyclingstatsproject.StageActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
@@ -38,7 +43,7 @@ public class RaceListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_tournament_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_list, container, false);
 
         recyclerView = view.findViewById(R.id.fragment_tournament_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -58,10 +63,10 @@ public class RaceListFragment extends Fragment {
         Locale location = getContext().getResources().getConfiguration().getLocales().get(0);
         String locationCode = location.getLanguage();
         String api_key = getString(R.string.api_key);
-        Call<TournamentList> TournamentapiCall = service.getTournamentList(locationCode,api_key);
+        Call<TournamentList> TournamentCall = service.getSeasons(locationCode,api_key);
 
 
-        TournamentapiCall.enqueue(new Callback<TournamentList>() {
+        TournamentCall.enqueue(new Callback<TournamentList>() {
             @Override
             public void onResponse(Call<TournamentList> call, Response<TournamentList> response) {
                 setupTournamentListView(response.body().getTournaments());
@@ -74,7 +79,7 @@ public class RaceListFragment extends Fragment {
         });
     }
 
-    private void setupTournamentListView(List<Tournament> tournamentList) {
+    private void setupTournamentListView(LinkedList<Tournament> tournamentList) {
         final TournamentAdapter Adapter = new TournamentAdapter(tournamentList);
 
         recyclerView.setAdapter(Adapter);
@@ -86,26 +91,38 @@ public class RaceListFragment extends Fragment {
         TextView nameTextView;
         TextView scheduledTextView;
         TextView scheduled_endTextView;
-        TextView categoryTextView;
 
         Tournament tournament;
 
+
         public TournamentHolder(LayoutInflater inflater, ViewGroup parent) {
-            super(inflater.inflate(R.layout.fragment_tournament, parent, false));
+            super(inflater.inflate(R.layout.fragment_seasons, parent, false));
 
             nameTextView = itemView.findViewById(R.id.tournament_name);
             scheduledTextView = itemView.findViewById(R.id.scheduled);
             scheduled_endTextView = itemView.findViewById(R.id.scheduled_end);
-            categoryTextView = itemView.findViewById(R.id.category);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), StageActivity.class);
+                    intent.putExtra("STAGES_ID",tournament.getId());
+                    startActivity(intent);
+                }
+            });
         }
 
         public void bind(Tournament tournament) {
             this.tournament = tournament;
             nameTextView.setText(tournament.getName());
-            scheduledTextView.setText(tournament.getScheduled().toString());
-            scheduled_endTextView.setText(tournament.getScheduled_end().toString());
-            categoryTextView.setText(tournament.getCategory().getName());
+            SimpleDateFormat dateFormater = new SimpleDateFormat("dd/MM/yyyy");
+            scheduledTextView.setText(dateFormater.format(tournament.getScheduled()));
+            scheduled_endTextView.setText(dateFormater.format(tournament.getScheduled_end()));
         }
+
+        public TournamentHolder(@NonNull View itemView) {
+            super(itemView);
+        }
+
 
     }
 

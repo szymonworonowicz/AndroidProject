@@ -8,7 +8,7 @@ import java.util.List;
 public class Race {
     @SerializedName("id")
     private String id;
-    @SerializedName("name")
+    @SerializedName("description")
     private String name;
     @SerializedName("scheduled")
     private Date scheduled;
@@ -16,12 +16,10 @@ public class Race {
     private Date scheduled_end;
     @SerializedName("single_event")
     private boolean single_event;
-    @SerializedName("tournament")
-    private Tournament tournament;
-    @SerializedName("course")
-    private Course course;
+    @SerializedName("type")
+    private String type;
     @SerializedName("stages")
-    private List<Stage> stages;
+    private List<Race> stages;
 
     public String getId() {
         return id;
@@ -63,27 +61,19 @@ public class Race {
         this.single_event = single_event;
     }
 
-    public Tournament getTournament() {
-        return tournament;
-    }
-
-    public void setTournament(Tournament tournament) {
-        this.tournament = tournament;
-    }
-
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
-    public List<Stage> getStages() {
+    public List<Race> getStages() {
         return stages;
     }
 
-    public void setStages(List<Stage> stages) {
+    public void setStages(List<Race> stages) {
         this.stages = stages;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

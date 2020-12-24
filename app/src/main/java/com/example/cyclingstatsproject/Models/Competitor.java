@@ -11,6 +11,8 @@ public class Competitor {
     private String country_code;
     @SerializedName("nationality")
     private String nationality;
+    @SerializedName("team")
+    private Team team;
 
     public String getId() {
         return id;
@@ -42,5 +44,13 @@ public class Competitor {
 
     public void setNationality(String nationality) {
         this.nationality = nationality;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }

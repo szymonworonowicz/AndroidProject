@@ -10,13 +10,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cyclingstatsproject.API.RaceService;
-import com.example.cyclingstatsproject.API.RetrofitInstance;
+import com.example.cyclingstatsproject.API.RaceV2Service;
+import com.example.cyclingstatsproject.API.RetrofitV2Instance;
 import com.example.cyclingstatsproject.Models.Tournament;
 import com.example.cyclingstatsproject.Models.TournamentList;
 import com.example.cyclingstatsproject.R;
@@ -31,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RaceListFragment extends Fragment {
+public class TournamentListFragment extends Fragment {
 
     RecyclerView recyclerView;
 
@@ -58,7 +57,7 @@ public class RaceListFragment extends Fragment {
     }
 
     public void fetchTournamentData() {
-        RaceService service = RetrofitInstance.getRetrofitInstance().create(RaceService.class);
+        RaceV2Service service = RetrofitV2Instance.getRetrofitInstance().create(RaceV2Service.class);
 
         Locale location = getContext().getResources().getConfiguration().getLocales().get(0);
         String locationCode = location.getLanguage();

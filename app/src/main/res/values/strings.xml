@@ -11,4 +11,7 @@
     -->
     <string name="hello_world">Hello Square World!</string>
     <string name="title_activity_stage">StageActivity</string>
+    <string name="nazwa">Nazwa</string>
+    <string name="title_activity_result">ResultActivity</string>
+    <string name="time">Time</string>
 </resources>

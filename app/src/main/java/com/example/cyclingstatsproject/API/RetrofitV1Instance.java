@@ -5,9 +5,9 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitInstance {
+public class RetrofitV1Instance {
     private static Retrofit retrofit;
-    private static final String RACE_API_URL = "https://api.sportradar.us/cycling/trial/v2/";
+    private static final String RACE_API_URL = "https://api.sportradar.us/cycling-t1/";
 
     public static Retrofit getRetrofitInstance() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
@@ -18,8 +18,8 @@ public class RetrofitInstance {
                 .addInterceptor(interceptor)
                 .build();
 
-        if(retrofit == null) {
-            retrofit =new Retrofit
+        if (retrofit == null) {
+            retrofit = new Retrofit
                     .Builder()
                     .baseUrl(RACE_API_URL)
                     .addConverterFactory(GsonConverterFactory.create())
@@ -27,7 +27,6 @@ public class RetrofitInstance {
                     .build();
         }
 
-        return  retrofit;
-
+        return retrofit;
     }
 }

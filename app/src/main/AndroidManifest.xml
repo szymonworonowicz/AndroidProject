@@ -16,8 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CyclingStatsProject">
         <activity
+            android:name=".ResultActivity"
+            android:label="@string/title_activity_result">
+        </activity>
+        <activity
             android:name=".StageActivity"
-            android:label="@string/title_activity_stage"></activity>
+            android:label="@string/title_activity_stage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

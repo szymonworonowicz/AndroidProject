@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-import com.example.cyclingstatsproject.Fragments.RaceListFragment;
+import com.example.cyclingstatsproject.Fragments.TournamentListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if(savedInstanceState == null) {
-            Fragment newFragment = new RaceListFragment();
+            Fragment newFragment = new TournamentListFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.add(R.id.fragment_container,newFragment).commit();
         }

@@ -1,5 +1,6 @@
 package com.example.cyclingstatsproject.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import com.example.cyclingstatsproject.API.RetrofitV1Instance;
 import com.example.cyclingstatsproject.Models.StageResult;
 import com.example.cyclingstatsproject.Models.StageResultList;
 import com.example.cyclingstatsproject.R;
+import com.example.cyclingstatsproject.SumaryActivity;
 
 import java.util.List;
 import java.util.Locale;
@@ -57,7 +59,7 @@ public class ResultFragment extends Fragment {
 
         Locale location = getContext().getResources().getConfiguration().getLocales().get(0);
         String locationCode = location.getLanguage();
-        String api_key = getString(R.string.api_key);
+        String api_key = getResources().getString(R.string.api_key);
 
         Call<StageResultList> ResultCall = service.getResults(locationCode, stage_id, api_key);
 
@@ -102,7 +104,10 @@ public class ResultFragment extends Fragment {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    Intent intent = new Intent(getActivity(), SumaryActivity.class);
+                    intent.putExtra("COMPETITOR_ID",result.getCompetitor().getId());
+                    intent.putExtra("TEAM_ID",result.getCompetitor().getTeam().getId());
+                    startActivity(intent);
                 }
             });
         }

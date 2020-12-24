@@ -6,15 +6,15 @@ import java.util.List;
 
 public class Rider {
     @SerializedName("competitor")
-    private Competitor competitor;
+    private CompetitorProfile competitor;
     @SerializedName("teams")
     private List<Team> teams;
 
-    public Competitor getCompetitor() {
+    public CompetitorProfile getCompetitor() {
         return competitor;
     }
 
-    public void setCompetitor(Competitor competitor) {
+    public void setCompetitor(CompetitorProfile competitor) {
         this.competitor = competitor;
     }
 

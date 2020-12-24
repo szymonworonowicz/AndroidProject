@@ -14,4 +14,14 @@
     <string name="nazwa">Nazwa</string>
     <string name="title_activity_result">ResultActivity</string>
     <string name="time">Time</string>
+    <string name="title_activity_stage_details">StageDetailsActivity</string>
+    <string name="tournaments">Tournaments</string>
+    <string name="teams">Teams</string>
+    <string name="title_activity_teams">TeamsActivity</string>
+    <string name="profil_zawodnika">Profil zawodnika</string>
+    <string name="profil_zespolu">Profil Zespołu</string>
+    <string name="name">Name:</string>
+    <string name="country_code">Country Code:</string>
+    <string name="nationality">Nationality</string>
+    <string name="team_name">Team name:</string>
 </resources>

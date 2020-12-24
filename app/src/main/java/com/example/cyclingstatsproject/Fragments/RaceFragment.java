@@ -61,7 +61,7 @@ public class RaceFragment extends Fragment {
 
         Locale location = getContext().getResources().getConfiguration().getLocales().get(0);
         String locationCode = location.getLanguage();
-        String api_key = getString(R.string.api_key);
+        String api_key = getResources().getString(R.string.api_key);;
 
         Call<Race> RaceList = service.getRaces(locationCode, race_id, api_key);
 

@@ -15,10 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CyclingStatsProject">
+        <activity android:name=".TeamProfileActivity"></activity>
+        <activity android:name=".CompetitorProfileActivity" />
+        <activity
+            android:name=".SumaryActivity"
+            android:label="@string/title_activity_teams" />
         <activity
             android:name=".ResultActivity"
-            android:label="@string/title_activity_result">
-        </activity>
+            android:label="@string/title_activity_result" />
         <activity
             android:name=".StageActivity"
             android:label="@string/title_activity_stage" />

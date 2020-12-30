@@ -24,4 +24,7 @@
     <string name="country_code">Country Code:</string>
     <string name="nationality">Nationality</string>
     <string name="team_name">Team name:</string>
+    <string name="departure_city">Departure_city</string>
+    <string name="arrival_city">Arrival_city</string>
+    <string name="distance">distance</string>
 </resources>

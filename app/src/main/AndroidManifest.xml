@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CyclingStatsProject">
-        <activity android:name=".TeamProfileActivity"></activity>
+        <activity android:name=".OneDayRacectivity"></activity>
+        <activity android:name=".TeamProfileActivity" />
         <activity android:name=".CompetitorProfileActivity" />
         <activity
             android:name=".SumaryActivity"

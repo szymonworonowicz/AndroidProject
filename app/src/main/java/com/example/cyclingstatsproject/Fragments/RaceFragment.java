@@ -16,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cyclingstatsproject.API.RaceV2Service;
 import com.example.cyclingstatsproject.API.RetrofitV2Instance;
+import com.example.cyclingstatsproject.Models.OneDayRace;
 import com.example.cyclingstatsproject.Models.Race;
+import com.example.cyclingstatsproject.OneDayRacectivity;
 import com.example.cyclingstatsproject.R;
 import com.example.cyclingstatsproject.ResultActivity;
 import com.example.cyclingstatsproject.StageActivity;
@@ -61,7 +63,8 @@ public class RaceFragment extends Fragment {
 
         Locale location = getContext().getResources().getConfiguration().getLocales().get(0);
         String locationCode = location.getLanguage();
-        String api_key = getResources().getString(R.string.api_key);;
+        String api_key = getResources().getString(R.string.api_key);
+        ;
 
         Call<Race> RaceList = service.getRaces(locationCode, race_id, api_key);
 
@@ -106,7 +109,11 @@ public class RaceFragment extends Fragment {
                         Intent intent = new Intent(getActivity(), ResultActivity.class);
                         intent.putExtra("STAGES_ID", race.getId());
                         startActivity(intent);
-                    } else if (race.isSingle_event() == false && race.getType() != "stage") {
+                    } else if ((race.isSingle_event() && race.getStages() == null && race.getType().equals("event"))) {
+                        Intent intent = new Intent(getActivity(), OneDayRacectivity.class);
+                        intent.putExtra("STAGES_ID", race.getId());
+                        startActivity(intent);
+                    } else if ((race.isSingle_event() == false && race.getType() != "stage")) {
                         Intent intent = new Intent(getActivity(), StageActivity.class);
                         intent.putExtra("STAGES_ID", race.getId());
                         startActivity(intent);

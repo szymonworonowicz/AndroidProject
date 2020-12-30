@@ -118,7 +118,9 @@ public class ResultFragment extends Fragment {
             nameTextView.setText(result.getCompetitor().getName());
             timeTextView.setText(result.getTime());
             nationalityTextView.setText(result.getCompetitor().getCountry_code());
-            teamTextView.setText(result.getCompetitor().getTeam().getName());
+            if(result.getCompetitor().getTeam()!=null) {
+                teamTextView.setText(result.getCompetitor().getTeam().getName());
+            }
             placeTextView.setText(String.valueOf(result.getTime_ranking()));
         }
     }

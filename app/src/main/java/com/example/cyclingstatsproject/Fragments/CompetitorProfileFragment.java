@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cyclingstatsproject.API.RaceV1Service;
+import com.example.cyclingstatsproject.API.RaceV2Service;
 import com.example.cyclingstatsproject.API.RetrofitV1Instance;
+import com.example.cyclingstatsproject.API.RetrofitV2Instance;
 import com.example.cyclingstatsproject.Models.Rider;
 import com.example.cyclingstatsproject.Models.Team;
 import com.example.cyclingstatsproject.R;
@@ -58,26 +60,51 @@ public class CompetitorProfileFragment  extends Fragment {
     }
 
     private void fetchData() {
-        RaceV1Service service = RetrofitV1Instance.getRetrofitInstance().create(RaceV1Service.class);
+        if(competitor_id.contains("rider")) {
+            RaceV1Service service = RetrofitV1Instance.getRetrofitInstance().create(RaceV1Service.class);
 
-        Locale location = getResources().getConfiguration().getLocales().get(0);
-        String locationCode = location.getLanguage();
-        String api_key = getResources().getString(R.string.api_key);
+            Locale location = getResources().getConfiguration().getLocales().get(0);
+            String locationCode = location.getLanguage();
+            String api_key = getResources().getString(R.string.api_key);
 
-        Call<Rider> RiderInfo = service.getRider(locationCode, competitor_id, api_key);
-        RiderInfo.enqueue(new Callback<Rider>() {
-            @Override
-            public void onResponse(Call<Rider> call, Response<Rider> response) {
-                updateAdapter(response.body());
-                Log.println(Log.ASSERT, "Callback", "pobrano");
+            Call<Rider> RiderInfo = service.getRider(locationCode, competitor_id, api_key);
+            RiderInfo.enqueue(new Callback<Rider>() {
+                @Override
+                public void onResponse(Call<Rider> call, Response<Rider> response) {
+                    updateAdapter(response.body());
+                    Log.println(Log.ASSERT, "Callback", "pobrano");
 
-            }
+                }
 
-            @Override
-            public void onFailure(Call<Rider> call, Throwable t) {
-                Log.e("FAILURE", "blad pobrania danych");
-            }
-        });
+                @Override
+                public void onFailure(Call<Rider> call, Throwable t) {
+                    Log.e("FAILURE", "blad pobrania danych");
+                }
+            });
+        } else if(competitor_id.contains("competitor"))
+        {
+            RaceV2Service service = RetrofitV2Instance.getRetrofitInstance().create(RaceV2Service.class);
+
+            Locale location = getResources().getConfiguration().getLocales().get(0);
+            String locationCode = location.getLanguage();
+            String api_key = getResources().getString(R.string.api_key);
+
+            Call<Rider> RiderInfo = service.getRider(locationCode, competitor_id, api_key);
+            RiderInfo.enqueue(new Callback<Rider>() {
+                @Override
+                public void onResponse(Call<Rider> call, Response<Rider> response) {
+                    updateAdapter(response.body());
+                    Log.println(Log.ASSERT, "Callback", "pobrano");
+
+                }
+
+                @Override
+                public void onFailure(Call<Rider> call, Throwable t) {
+                    Log.e("FAILURE", "blad pobrania danych");
+                }
+            });
+        }
+
 
     }
 
@@ -139,6 +166,9 @@ public class CompetitorProfileFragment  extends Fragment {
 
         @Override
         public int getItemCount() {
+            if(teams == null) {
+                return  0;
+            }
             return teams.size();
         }
     }

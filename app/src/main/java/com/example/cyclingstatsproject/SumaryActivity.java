@@ -25,6 +25,11 @@ public class SumaryActivity extends AppCompatActivity {
         Competitor_ProfileButton = (Button) findViewById(R.id.competitor_profile);
         Team_ProfileButton = (Button) findViewById(R.id.team_profile);
 
+        if(team_id == null) {
+            Team_ProfileButton.setVisibility(View.INVISIBLE);
+        } else {
+            Team_ProfileButton.setVisibility(View.VISIBLE);
+        }
         Competitor_ProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

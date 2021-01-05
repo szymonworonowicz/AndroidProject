@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wyniki Kolarskie</string>
+    <string name="api_key">bvefpa6ewwjbvrzajzvdp2vv</string>
+    <string name="sezon">Sezon</string>
+    <string name="start">Start</string>
+    <string name="koniec">Koniec</string>
+    <string name="title_activity_stages">Etapy</string>
+    <string name="hello_world">Hello Round World!</string>
+    <string name="nazwa">Nazwa</string>
+    <string name="title_activity_result">Wyniki</string>
+    <string name="time">Czas</string>
+    <string name="title_activity_stage_details">Informacje o wyścigu</string>
+    <string name="tournaments">Wyścigi</string>
+    <string name="teams">Zespoły</string>
+    <string name="title_activity_teams">Zespoły</string>
+    <string name="profil_zawodnika">Profil zawodnika</string>
+    <string name="profil_zespolu">Profil zespołu</string>
+    <string name="name">Nazwa</string>
+    <string name="country_code">Kod kraju</string>
+    <string name="nationality">Narodowość</string>
+    <string name="team_name">Nazwa zespołu:</string>
+    <string name="departure_city">Miasto Startu</string>
+    <string name="arrival_city">Miasto Mety</string>
+    <string name="distance">Dystans</string>
+    <string name="title_activity_stage">Wyscigi</string>
+</resources>

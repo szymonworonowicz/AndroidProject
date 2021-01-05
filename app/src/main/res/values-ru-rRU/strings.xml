@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">" Результаты велоспорта"</string>
+    <string name="api_key">bvefpa6ewwjbvrzajzvdp2vv</string>
+    <string name="sezon">" Сезон"</string>
+    <string name="start">" Начало"</string>
+    <string name="koniec">Конец</string>
+    <string name="hello_world">Hello Round World!</string>
+    <string name="title_activity_stages">" Этапы"</string>
+    <string name="nazwa">"Название "</string>
+    <string name="title_activity_result">Pезультаты</string>
+    <string name="time">Время</string>
+    <string name="title_activity_stage_details">" Информация о расе"</string>
+    <string name="tournaments">Гонки</string>
+    <string name="teams">Команды</string>
+    <string name="title_activity_teams">Команды</string>
+    <string name="profil_zawodnika">Профиль игрока</string>
+    <string name="profil_zespolu">"Профиль команды "</string>
+    <string name="name">Название</string>
+    <string name="country_code">Код страны</string>
+    <string name="nationality">Национальность</string>
+    <string name="team_name">Название группы:</string>
+    <string name="departure_city">Город взлета</string>
+    <string name="arrival_city">Город Финиша</string>
+    <string name="distance">Расстояние</string>
+    <string name="title_activity_stage">" Гонки"</string>
+</resources>

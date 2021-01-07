@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">" Результаты велоспорта"</string>
-    <string name="api_key">bvefpa6ewwjbvrzajzvdp2vv</string>
+    <string name="api_key">xrmrdyfd5s3yp867dbpt6rx3</string>
     <string name="sezon">" Сезон"</string>
     <string name="start">" Начало"</string>
     <string name="koniec">Конец</string>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Wyniki Kolarskie</string>
-    <string name="api_key">bvefpa6ewwjbvrzajzvdp2vv</string>
+    <string name="api_key">xrmrdyfd5s3yp867dbpt6rx3</string>
     <string name="sezon">Sezon</string>
     <string name="start">Start</string>
     <string name="koniec">Koniec</string>

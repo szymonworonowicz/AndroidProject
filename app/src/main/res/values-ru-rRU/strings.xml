@@ -24,4 +24,5 @@
     <string name="arrival_city">Город Финиша</string>
     <string name="distance">Расстояние</string>
     <string name="title_activity_stage">" Гонки"</string>
+    <string name="seasons">сезоны</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cyclingstatsproject">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -27,7 +28,10 @@
         <activity
             android:name=".StageActivity"
             android:label="@string/title_activity_stage" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:label="@string/seasons"
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,8 +42,8 @@ public class TeamFragment extends Fragment {
         View view = inflater.inflate(R.layout.team_layout, container, false);
 
         TeamNameTextView = view.findViewById(R.id.Team_team_name);
-        TeamCodeTextView = view.findViewById(R.id.team_country_code);
-        TeamNationalityTextView = view.findViewById(R.id.team_nationality);
+//        TeamCodeTextView = view.findViewById(R.id.team_country_code);
+//        TeamNationalityTextView = view.findViewById(R.id.team_nationality);
 
         recyclerView = view.findViewById(R.id.team_competitors_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -74,8 +75,8 @@ public class TeamFragment extends Fragment {
 
     private void setupResultView(TeamProfile body) {
         TeamNameTextView.setText(body.getTeam().getName());
-        TeamCodeTextView.setText(body.getTeam().getCountry_code());
-        TeamNationalityTextView.setText(body.getTeam().getNationality());
+//        TeamCodeTextView.setText(body.getTeam().getCountry_code());
+//        TeamNationalityTextView.setText(body.getTeam().getNationality());
 
         final CompetitorAdapter Adapter = new CompetitorAdapter(body.getCompetitors());
         recyclerView.setAdapter(Adapter);
@@ -89,6 +90,8 @@ public class TeamFragment extends Fragment {
 
             nameTextView = itemView.findViewById(R.id.competitor_name);;
             nationalityTextView = itemView.findViewById(R.id.competitor_nationality);
+            LinearLayout time= itemView.findViewById(R.id.time_Layout);
+            time.setVisibility(View.GONE);
         }
 
         public void bind(Competitor competitor) {
